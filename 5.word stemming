@@ -1,0 +1,14 @@
+from nltk.stem import PorterStemmer
+
+# Initialize the Porter Stemmer
+porter = PorterStemmer()
+
+# List of words to perform stemming on
+words = ["running", "easily", "friendship", "beautifully"]
+
+# Perform stemming on the list of words
+stemmed_words = [porter.stem(word) for word in words]
+
+# Display the stemmed words
+for original, stemmed in zip(words, stemmed_words):
+    print(f"Original: {original} -> Stemmed: {stemmed}")
