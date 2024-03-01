@@ -1,0 +1,20 @@
+# Define the input string
+input_string = "abcab"
+
+# Initialize the state of the automaton
+state = 0
+
+# Iterate through the characters in the input string
+for char in input_string:
+    if state == 0 and char == 'a':
+        state = 1
+    elif state == 1 and char == 'b':
+        state = 2
+    else:
+        state = 0
+
+# Check if the automaton reached the accepting state
+is_accepted = state == 2
+
+# Print the result
+print(is_accepted)
