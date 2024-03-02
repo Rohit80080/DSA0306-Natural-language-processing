@@ -1,0 +1,16 @@
+import nltk
+from nltk.corpus import wordnet
+from nltk.tag import pos_tag
+
+# Load the necessary libraries
+nltk.download('wordnet')
+
+# Define the text to be tagged
+text = "I bought a new laptop yesterday"
+
+# Perform part-of-speech tagging
+tagged_text = pos_tag(nltk.word_tokenize(text))
+
+# Print the tagged text
+for word, tag in tagged_text:
+    print(word, tag)
