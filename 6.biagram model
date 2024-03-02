@@ -1,0 +1,34 @@
+import random
+
+# Define the corpus
+corpus = ["I bought a new laptop yesterday", "I bought a new laptop yesterday", "I bought a new laptop yesterday"]
+
+# Define the bigram model
+bigram_model = {}
+for sentence in corpus:
+    words = sentence.split()
+    for i in range(len(words) - 1):
+        bigram = (words[i], words[i+1])
+        if bigram not in bigram_model:
+            bigram_model[bigram] = 1
+        else:
+            bigram_model[bigram] += 1
+
+# Generate text using the biagram model
+generated_text = ""
+while True:
+    # Choose a random word to start the sentence
+    word = random.choice(list(bigram_model.keys())[0])
+    generated_text += word + " "
+    
+    # Generate the next word based on the bigram model
+    for bigram, count in bigram_model.items():
+        if bigram[0] == word:
+            generated_text += bigram[1] + " "
+            break
+    
+    # Check if the sentence is complete
+    if word == "I":
+        break
+
+print(generated_text)
